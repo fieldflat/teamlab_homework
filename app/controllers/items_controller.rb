@@ -31,6 +31,25 @@ class ItemsController < ApplicationController
       end
     end
   end
+
+  def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      respond_to do |format|
+        format.html { redirect_to item_path(@item) }
+        format.json { render :json => @item }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to root_path }
+        format.json { render :json => @item.errors }
+      end
+    end
+  end
   
   def destroy
     @item = Item.find(params[:id])
