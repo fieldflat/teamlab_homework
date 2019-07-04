@@ -1,4 +1,5 @@
 class StaticPagesController < ApplicationController
-    def home
-    end
+  def home
+		@item = Item.new
+  end
 end
