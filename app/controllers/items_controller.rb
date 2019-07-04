@@ -50,13 +50,22 @@ class ItemsController < ApplicationController
       end
     end
   end
-  
+
   def destroy
     @item = Item.find(params[:id])
     @item.destroy
     respond_to do |format|
       format.html { redirect_to items_path }
       format.json { render :json => { status: "SUCCESS", method: "deleted" } }
+    end
+  end
+
+  def search
+    @items = Item.where("title LIKE ?", "%#{params[:text]}%").or(Item.where("description LIKE ?", "%#{params[:text]}%"))
+    puts @items
+    respond_to do |format|
+      format.html { render 'index' }
+      format.json { render :json => @items }
     end
   end
 
