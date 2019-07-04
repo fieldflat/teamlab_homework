@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+(1..100).each do |i|
+    Item.create(title: "これは#{i}番目のタイトル", description: "これは#{i}番目の説明", price: i*1000)
+end

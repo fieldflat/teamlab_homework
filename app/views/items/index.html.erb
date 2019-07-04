@@ -1,0 +1,8 @@
+<h1>Welcome to Item_index</h1>
+<% @items.each do |item| %>
+    <div>
+        <b>title</b>: <%= item.title %>
+        <b>description</b>: <%= item.description %>
+        <b>price</b>: <%= item.price %>
+    </div>
+<% end %>
