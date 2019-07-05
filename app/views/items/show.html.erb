@@ -3,6 +3,7 @@
   <b>title</b>: <%= @item.title %>
   <b>description</b>: <%= @item.description %>
   <b>price</b>: <%= @item.price %>
+  <%= image_tag @item.image.url if @item.image? %>
   <%= link_to "Delete", item_path(@item.id), method: :delete %>
 </div>
 
