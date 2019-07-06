@@ -16,7 +16,7 @@
 	<%= f.submit "Create" %>
 <% end %>
 
-<%= form_with(url: search_path, data: {remote: false}) do |f| %>
+<%= form_with(url: items_path, data: {remote: true}, method: :get) do |f| %>
   <%= f.text_field :text %>
   <%= f.submit "Search" %>
 <% end %>

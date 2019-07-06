@@ -3,10 +3,16 @@ class ItemsController < ApplicationController
 
   def index
     @item = Item.new # 新規作成用オブジェクト
-    @items = Item.all.order(id: :desc)
+    if params[:text].nil?
+      @items = Item.all.order(id: :desc)
+    else
+      @items = Item.where("title LIKE ?", "%#{params[:text]}%").or(Item.where("description LIKE ?", "%#{params[:text]}%"))
+      @items = [] if @items.nil?
+    end
     respond_to do |format|
       format.html
       format.json { render :json => @items }
+      format.js
     end
   end
 
