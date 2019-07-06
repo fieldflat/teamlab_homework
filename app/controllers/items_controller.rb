@@ -2,7 +2,8 @@ class ItemsController < ApplicationController
   protect_from_forgery #CSFR対策
 
   def index
-    @items = Item.all
+    @item = Item.new # 新規作成用オブジェクト
+    @items = Item.all.order(id: :desc)
     respond_to do |format|
       format.html
       format.json { render :json => @items }
@@ -21,8 +22,9 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     if @item.save
       respond_to do |format|
-        format.html { redirect_to item_path(@item) }
+        # format.html { redirect_to items_path }
         format.json { render :json => @item }
+        format.js
       end
     else
       respond_to do |format|
@@ -61,6 +63,7 @@ class ItemsController < ApplicationController
   end
 
   def search
+    @item = Item.new # 新規作成用オブジェクト
     @items = Item.where("title LIKE ?", "%#{params[:text]}%").or(Item.where("description LIKE ?", "%#{params[:text]}%"))
     puts @items
     respond_to do |format|

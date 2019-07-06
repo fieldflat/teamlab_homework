@@ -1,18 +1,35 @@
 <h1>Welcome to Item_index</h1>
-<p><%= link_to "New", root_path %></p>
+
+<%= form_for(@item, data: { remote: true }) do |f| %>
+	<%= f.label :title %>
+	<%= f.text_field :title %>
+
+	<%= f.label :description %>
+	<%= f.text_area :description %>
+
+	<%= f.label :price %>
+	<%= f.number_field :price %>
+
+  <%= f.label :image %>
+  <%= f.file_field :image %>
+
+	<%= f.submit "Create" %>
+<% end %>
 
 <%= form_with(url: search_path, data: {remote: false}) do |f| %>
   <%= f.text_field :text %>
   <%= f.submit "Search" %>
 <% end %>
 
-<% @items.each do |item| %>
-  <div>
-    <b>title</b>: <%= item.title %>
-    <b>description</b>: <%= item.description %>
-    <b>price</b>: <%= item.price %>
-    <%= link_to "Show", item_path(item.id) %>
-    <%= link_to "Edit", edit_item_path(item.id) %>
-    <%= link_to "Delete", item_path(item.id), method: :delete %>
-  </div>
-<% end %>
+<div class="items">
+  <% @items.each do |item| %>
+    <div class="item_row" id="item_<%= item.id %>">
+      <b>title</b>: <%= item.title %>
+      <b>description</b>: <%= item.description %>
+      <b>price</b>: <%= item.price %>
+      <%= link_to "Show", item_path(item.id) %>
+      <%= link_to "Edit", edit_item_path(item.id) %>
+      <%= link_to "Delete", item_path(item.id), method: :delete %>
+    </div>
+  <% end %>
+</div>

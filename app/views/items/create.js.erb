@@ -1,0 +1,12 @@
+var message = '\
+<div class="item_row" id="item_<%= @item.id %>">\
+  <b>title</b>: <%= @item.title %>\
+  <b>description</b>: <%= @item.description %>\
+  <b>price</b>: <%= @item.price %>\
+  <%= link_to "Show", item_path(@item.id) %>\
+  <%= link_to "Edit", edit_item_path(@item.id) %>\
+  <%= link_to "Delete", item_path(@item.id), method: :delete %>\
+</div>\
+';
+console.log(message);
+$('.items').prepend(message);
