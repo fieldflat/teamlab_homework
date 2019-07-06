@@ -57,8 +57,9 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @item.destroy
     respond_to do |format|
-      format.html { redirect_to items_path }
+      # format.html { redirect_to items_path }
       format.json { render :json => { status: "SUCCESS", method: "deleted" } }
+      format.js
     end
   end
 

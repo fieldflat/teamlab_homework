@@ -29,7 +29,7 @@
       <b>price</b>: <%= item.price %>
       <%= link_to "Show", item_path(item.id) %>
       <%= link_to "Edit", edit_item_path(item.id) %>
-      <%= link_to "Delete", item_path(item.id), method: :delete %>
+      <%= link_to "Delete", item_path(item.id), {method: :delete, remote: true} %>
     </div>
   <% end %>
 </div>
