@@ -1,13 +1,42 @@
 <% provide(:button, "Create") %>
 <h1>Welcome to Item_index</h1>
 
+<div class="center">
+  <button class="btn btn-selected" id="register-btn">登録</button>
+  <button class="btn" id="search-btn">検索</button>
+</div>
+
 <!-- 商品登録フォーム -->
-<%= render partial: 'form' %>
+<div class="register">
+  <%= render partial: 'form' %>
+</div>
 
 <!-- 検索フォーム -->
-<%= render partial: 'search' %>
+<div class="search display_none">
+  <%= render partial: 'search' %>
+</div>
 
 <!-- 商品一覧 -->
 <div class="items">
   <%= render @items %>
 </div>
+
+<script>
+$('#register-btn').click(function(){
+  if($('.register').hasClass('display_none')){
+      $('.register').toggleClass("display_none");
+      $('.search').toggleClass("display_none");
+      $('#register-btn').toggleClass("btn-selected");
+      $('#search-btn').toggleClass("btn-selected");
+    }
+})
+
+$('#search-btn').click(function () {
+  if($('.search').hasClass('display_none')){
+      $('.register').toggleClass("display_none");
+      $('.search').toggleClass("display_none");
+      $('#register-btn').toggleClass("btn-selected");
+      $('#search-btn').toggleClass("btn-selected");
+    }
+})
+</script>
