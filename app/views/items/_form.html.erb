@@ -1,0 +1,29 @@
+<%= form_for(@item, data: { remote: true }) do |f| %>
+
+  <div class="cp_iptxt">
+    <%= f.label :title, class: "ef" %>
+    <%= f.text_field :title, placeholder: "商品タイトルを入力してください" %>
+  </div>
+
+  <div class="cp_iptxt">
+    <%= f.label :description, class: "ef" %>
+    <%= f.text_field :description, placeholder: "商品の説明を入力してください" %>
+  </div>
+
+  <div class="cp_iptxt">
+    <%= f.label :price, class: "ef" %>
+    <%= f.text_field :price, placeholder: "商品の値段を入力してください" %>
+  </div>
+
+  <div class="center">
+    <div class="image">
+      <%= f.label :image %>
+      <%= f.file_field :image %>
+    </div>
+
+    <div class="button">
+      <%= f.submit yield(:button), class: "btn-flat-border" %>
+    </div>
+  </div>
+
+<% end %>

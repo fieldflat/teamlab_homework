@@ -1,14 +1,6 @@
-<%= form_for(@item) do |f| %>
-	<%= f.label :title %>
-	<%= f.text_field :title %>
+<% provide(:button, "Edit") %>
 
-	<%= f.label :description %>
-	<%= f.text_area :description %>
-
-	<%= f.label :price %>
-	<%= f.number_field :price %>
-
-	<%= f.submit "Edit" %>
-<% end %>
+<!-- 商品編集フォーム -->
+<%= render partial: 'form' %>
 
 <p><%= link_to "Index", items_path %></p>
