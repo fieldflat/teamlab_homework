@@ -1,8 +1,8 @@
 <h1>Welcome to Item_show</h1>
 <div>
-  <b>title</b>: <%= @item.title %>
-  <b>description</b>: <%= @item.description %>
-  <b>price</b>: <%= @item.price %>
+  <p><b>title</b>: <%= @item.title %></p>
+  <p><b>description</b>: <%= @item.description %></p>
+  <p><b>price</b>: <%= @item.price %></p>
   <%= image_tag @item.image.url if @item.image? %>
   <%= link_to "Delete", item_path(@item.id), method: :delete %>
 </div>

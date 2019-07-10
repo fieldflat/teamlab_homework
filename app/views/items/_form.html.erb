@@ -1,18 +1,31 @@
 <%= form_for(@item, data: { remote: true }) do |f| %>
 
+  <div>
+    <p style="color: red;" class="display_none error" id="error">入力に誤りがあります！</p>
+  </div>
+
   <div class="cp_iptxt">
+    <div>
+      <p style="color: red;" class="display_none error" id="error-title">タイトルは1〜100文字で入力してください</p>
+    </div>
     <%= f.label :title, class: "ef" %>
-    <%= f.text_field :title, placeholder: "商品タイトルを入力してください" %>
+    <%= f.text_field :title, placeholder: "商品タイトルを入力してください(1〜100文字)" %>
   </div>
 
   <div class="cp_iptxt">
+    <div>
+      <p style="color: red;" class="display_none error" id="error-description">商品説明は1〜500文字で入力してください</p>
+    </div>
     <%= f.label :description, class: "ef" %>
-    <%= f.text_field :description, placeholder: "商品の説明を入力してください" %>
+    <%= f.text_area :description, placeholder: "商品の説明を入力してください(1〜500文字)", class: "form-description", size: "300"  %>
   </div>
 
   <div class="cp_iptxt">
+    <div>
+      <p style="color: red;" class="display_none error" id="error-price">値段は正整数で入力してください</p>
+    </div>
     <%= f.label :price, class: "ef" %>
-    <%= f.text_field :price, placeholder: "商品の値段を入力してください" %>
+    <%= f.text_field :price, placeholder: "商品の値段を入力してください(正整数のみ可)" %>
   </div>
 
   <div class="center">

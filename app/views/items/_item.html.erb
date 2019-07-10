@@ -1,8 +1,10 @@
-<div class="item_row" id="item_<%= item.id %>">
-  <b>title</b>: <%= item.title %>
-  <b>description</b>: <%= item.description %>
-  <b>price</b>: <%= item.price %>
-  <%= link_to "Show", item_path(item.id) %>
-  <%= link_to "Edit", edit_item_path(item.id) %>
-  <%= link_to "Delete", item_path(item.id), {method: :delete, remote: true} %>
+<div class="item_row item_block" id="item_<%= item.id %>">
+  <p><b>title</b>: <%= item.title %></p>
+  <p><b>description</b>: <%= item.description %></p>
+  <p><b>price</b>: <%= item.price %></p>
+  <div class="center">
+    <%= link_to "Show", item_path(item.id) %>
+    <%= link_to "Edit", edit_item_path(item.id) %>
+    <%= link_to "Delete", item_path(item.id), {method: :delete, remote: true} %>
+  </div>
 </div>

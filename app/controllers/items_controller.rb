@@ -34,8 +34,10 @@ class ItemsController < ApplicationController
       end
     else
       respond_to do |format|
-        format.html { redirect_to root_path }
+        @error = '入力に誤りがあります．'
+        format.html { render 'index' }
         format.json { render :json => @item.errors }
+        format.js
       end
     end
   end
@@ -63,7 +65,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @item.destroy
     respond_to do |format|
-      # format.html { redirect_to items_path }
+      format.html { redirect_to items_path }
       format.json { render :json => { status: "SUCCESS", method: "deleted" } }
       format.js
     end
