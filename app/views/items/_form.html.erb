@@ -1,4 +1,4 @@
-<%= form_for(@item, data: { remote: true }) do |f| %>
+<%= form_for(@item, data: { remote: true, format: 'json' }) do |f| %>
 
   <div>
     <p style="color: red;" class="display_none error" id="error">入力に誤りがあります！</p>
@@ -34,9 +34,15 @@
       <%= f.file_field :image %>
     </div>
 
-    <div class="button">
-      <%= f.submit yield(:button), class: "btn-flat-border" %>
-    </div>
+    <% if controller.action_name == 'index' %>
+      <div class="button">
+        <%= f.submit yield(:button), class: "btn-flat-border", id: "submit_button_create" %>
+      </div>
+    <% elsif controller.action_name == 'edit' %>
+        <div class="button">
+          <%= f.submit yield(:button), class: "btn-flat-border" %>
+        </div>
+    <% end %>
   </div>
 
 <% end %>

@@ -1,4 +1,4 @@
-<%= form_with(url: items_path, data: {remote: true}, method: :get) do |f| %>
+<%= form_with(url: items_path, data: {remote: true, format: 'json'}, method: :get) do |f| %>
 
   <div class="cp_iptxt">
     <%= f.label :text, class: "ef" %>
@@ -6,7 +6,7 @@
   </div>
 
   <div class="center">
-    <%= f.submit "Search", class: "btn-flat-border" %>
+    <%= f.submit "Search", class: "btn-flat-border", id: "submit_button_search" %>
   </div>
 
 <% end %>

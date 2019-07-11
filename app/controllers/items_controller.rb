@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
       format.html
       # format.json { render :json => @items, handlers: 'jbuilder' }
       format.json { render 'index', formats: 'json', handlers: 'jbuilder' }
-      format.js
+      # format.js
     end
   end
 
@@ -26,18 +26,19 @@ class ItemsController < ApplicationController
   end
 
   def create
+    # byebug
     @item = Item.new(item_params)
     if @item.save
       respond_to do |format|
         # format.html { redirect_to items_path }
         format.json { render 'create', formats: 'json', handlers: 'jbuilder' }
-        format.js
+        # format.js
       end
     else
       respond_to do |format|
         @error = '入力に誤りがあります．'
         format.html { render 'index' }
-        format.json { render :json => @item.errors }
+        # format.json { render :json => @item.errors }
         format.js
       end
     end
@@ -78,7 +79,7 @@ class ItemsController < ApplicationController
     puts @items
     respond_to do |format|
       format.html { render 'index' }
-      format.json { render :json => @items }
+      format.json { render 'search', formats: 'json', handlers: 'jbuilder' }
     end
   end
 
