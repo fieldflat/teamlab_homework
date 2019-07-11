@@ -11,7 +11,8 @@ class ItemsController < ApplicationController
     end
     respond_to do |format|
       format.html
-      format.json { render :json => @items }
+      # format.json { render :json => @items, handlers: 'jbuilder' }
+      format.json { render 'index', formats: 'json', handlers: 'jbuilder' }
       format.js
     end
   end
@@ -29,7 +30,7 @@ class ItemsController < ApplicationController
     if @item.save
       respond_to do |format|
         # format.html { redirect_to items_path }
-        format.json { render :json => @item }
+        format.json { render 'create', formats: 'json', handlers: 'jbuilder' }
         format.js
       end
     else

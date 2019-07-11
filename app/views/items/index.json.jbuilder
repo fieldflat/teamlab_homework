@@ -1,0 +1,1 @@
+json.array! @items, :id, :title, :description, :price, :image
