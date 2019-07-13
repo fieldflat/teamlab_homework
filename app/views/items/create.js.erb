@@ -1,4 +1,4 @@
-<% unless @error.nil? %>
+<% if @error.present? %>
   $('#error').removeClass('display_none');
   <% if @item.errors.messages[:title].any? %>
     $('#error-title').removeClass('display_none');
@@ -17,21 +17,4 @@
   <% else %>
     $('#error-price').addClass('display_none');
   <% end %>
-
-<% else %>
-  var message = '\
-  <div class="item_row item_block" id="item_<%= @item.id %>">\
-    <p><b>title</b>: <%= @item.title %></p>\
-    <p><b>description</b>: <%= @item.description %></p>\
-    <p><b>price</b>: <%= @item.price %></p>\
-    <div class="center">\
-    <%= link_to "Show", item_path(@item.id) %>\
-    <%= link_to "Edit", edit_item_path(@item.id) %>\
-    <%= link_to "Delete", item_path(@item.id), method: :delete, remote: true %>\
-    </div>\
-  </div>\
-  ';
-  console.log(message);
-  $('.items').prepend(message);
-  $('.error').addClass('display_none');
 <% end %>

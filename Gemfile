@@ -42,7 +42,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
 gem 'jquery-rails' 
-gem 'jquery-ui-rails'
+# gem 'jquery-ui-rails'
 
 group :production do
   gem 'pg'

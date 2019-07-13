@@ -4,7 +4,7 @@
   <p><b>description</b>: <%= @item.description %></p>
   <p><b>price</b>: <%= @item.price %></p>
   <%= image_tag @item.image.url if @item.image? %>
-  <%= link_to "Delete", item_path(@item.id), method: :delete %>
+  <%= link_to "Delete", item_path(@item.id), method: :delete, data: {confirm: "削除します．よろしいですか？"} %>
 </div>
 
 <p><%= link_to "Index", items_path %></p>

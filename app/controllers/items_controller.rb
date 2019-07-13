@@ -26,19 +26,18 @@ class ItemsController < ApplicationController
   end
 
   def create
-    # byebug
     @item = Item.new(item_params)
-    if @item.save
+    if @item.valid?
       respond_to do |format|
         # format.html { redirect_to items_path }
-        format.json { render 'create', formats: 'json', handlers: 'jbuilder' }
-        # format.js
+        format.json { @item.save; render 'create', formats: 'json', handlers: 'jbuilder' }
+        format.js 
       end
     else
       respond_to do |format|
         @error = '入力に誤りがあります．'
-        format.html { render 'index' }
-        # format.json { render :json => @item.errors }
+        # format.html { render 'index' }
+        format.json { render :json => @item.errors }
         format.js
       end
     end

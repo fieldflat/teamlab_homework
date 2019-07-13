@@ -1,4 +1,4 @@
-<%= form_for(@item, data: { remote: true, format: 'json' }) do |f| %>
+<%= form_for(@item,  data: { remote: true, format: 'json' }) do |f| %>
 
   <div>
     <p style="color: red;" class="display_none error" id="error">入力に誤りがあります！</p>
@@ -25,7 +25,7 @@
       <p style="color: red;" class="display_none error" id="error-price">値段は正整数で入力してください</p>
     </div>
     <%= f.label :price, class: "ef" %>
-    <%= f.text_field :price, placeholder: "商品の値段を入力してください(正整数のみ可)" %>
+    <%= f.text_field :price, placeholder: "商品の値段を入力してください(正整数のみ可，単位は円)" %>
   </div>
 
   <div class="center">
