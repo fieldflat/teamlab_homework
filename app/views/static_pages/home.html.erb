@@ -1,2 +1,8 @@
 <h1>Welcome to teamLab Homework</h1>
 <p><%= link_to "Index", items_path %></p>
+<% if current_shop.nil? %>
+  <p><%= link_to "Sign up", signup_path %></p>
+  <p><%= link_to "Log in", login_path %></p>
+<% else %>
+  <p><%= link_to "Log out", logout_path, method: :delete %></p>
+<% end %>
