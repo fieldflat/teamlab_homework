@@ -11,6 +11,7 @@ class ShopsController < ApplicationController
     @shop = Shop.new(shop_params)
     if @shop.save
       # 保存の成功をここで扱う。
+      log_in @shop
       flash[:success] = "Created!"
       redirect_to @shop
     else
