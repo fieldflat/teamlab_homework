@@ -63,12 +63,20 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item = Item.find(params[:id])
-    @item.destroy
-    respond_to do |format|
-      format.html { redirect_to items_path }
-      format.json { render :json => { status: "SUCCESS", method: "deleted" } }
-      format.js
+    @item = Item.find_by(id: params[:id])
+    unless @item.nil?
+      @item.destroy
+      respond_to do |format|
+        format.html { redirect_to items_path }
+        format.json { render :json => { status: "SUCCESS", method: "deleted" } }
+        format.js
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to items_path }
+        format.json { render :json => { status: "FAIL", method: "deleted" } }
+        format.js
+      end
     end
   end
 
