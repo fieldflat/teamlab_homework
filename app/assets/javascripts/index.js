@@ -34,6 +34,7 @@ $(function () {
                       <p><b>title</b>: ${data.title}</p>\
                       <p><b>description</b>: ${data.description}</p>\
                       <p><b>price</b>: ${data.price}</p>\
+                      <p><b>shop name</b>: ${data.shop_name}</p>\
                       <div class="center">\
                       <a href="/items/${data.id}">Show</a>\
                       <a href="/items/${data.id}/edit">Edit</a>\
@@ -63,11 +64,12 @@ $(function () {
 $(function () {
   $("#submit_button_search").click(function () { 
     var text = $("#text").val();
+    var shop_name = $("#shop_name").val();
     console.log(text);
     $.ajax({
       type: 'GET', 
       url: '/items', 
-      data: { text: text },
+      data: { text: text, shop_name: shop_name },
       dataType: 'json' 
     })
       .done(function (data) {
@@ -79,6 +81,7 @@ $(function () {
                     <p><b>title</b>: ${item.title}</p>\
                     <p><b>description</b>: ${item.description}</p>\
                     <p><b>price</b>: ${item.price}</p>\
+                    <p><b>shop name</b>: ${item.shop_name}</p>\
                     <div class="center">\
                     <a href="/items/${item.id}">Show</a>\
                     <a href="/items/${item.id}/edit">Edit</a>\

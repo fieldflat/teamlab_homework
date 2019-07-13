@@ -6,7 +6,7 @@
     <li><a class="active" href="/login">Log in</a></li>
   <% else %>
     <li><%= link_to "Log out", logout_path, method: :delete, class: "active" %></li>
-    <li style="float: right;"><%= link_to "業者名：#{current_shop.name}", shop_path(current_shop) %></li>
+    <li style="float: right;"><%= link_to "店舗名：#{current_shop.name}", shop_path(current_shop) %></li>
   <% end %>
 </ul>
 

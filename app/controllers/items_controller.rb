@@ -1,13 +1,19 @@
 class ItemsController < ApplicationController
   protect_from_forgery #CSFR対策
   before_action :login_redirect, only: [:create, :destroy, :update, :edit]
+  before_action :correct_shop?, only: [:edit, :update, :destroy]
 
   def index
     @item = Item.new # 新規作成用オブジェクト
-    if params[:text].nil? # Item一覧取得
+    if params[:text].nil? && params[:shop_name].nil? # Item一覧取得
       @items = Item.all.order(id: :desc)
     else # 検索結果取得
-      @items = Item.where("title LIKE ?", "%#{params[:text]}%").or(Item.where("description LIKE ?", "%#{params[:text]}%"))
+      if params[:shop_name].present?
+        @shop = Shop.find_by(name: params[:shop_name])
+        @items = @shop.items.where("title LIKE ?", "%#{params[:text]}%").or(@shop.items.where("description LIKE ?", "%#{params[:text]}%")) unless @shop.nil?
+      else
+        @items = Item.where("title LIKE ?", "%#{params[:text]}%").or(Item.where("description LIKE ?", "%#{params[:text]}%"))
+      end
       @items = [] if @items.nil?
     end
     respond_to do |format|
@@ -26,6 +32,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    @item.shop_id = current_shop.id
     if @item.valid?
       respond_to do |format|
         format.json { @item.save; render 'create', formats: 'json', handlers: 'jbuilder' }
@@ -85,6 +92,14 @@ class ItemsController < ApplicationController
 
     def login_redirect
       redirect_to login_path if current_shop.nil?
+    end
+
+    def correct_shop?
+      @item = Item.find_by(id: params[:id])
+      unless @item.shop == current_shop
+        flash[:danger] = "権限がありません"
+        redirect_to items_path 
+      end
     end
 
 end

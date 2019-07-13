@@ -5,6 +5,11 @@
     <%= f.text_field :text, placeholder: "検索ワードを入力してください" %>
   </div>
 
+  <div class="cp_iptxt">
+    <%= f.label :shop_name, class: "ef" %>
+    <%= f.text_field :shop_name, placeholder: "店舗名で絞り込むことができます(任意)" %>
+  </div>
+
   <div class="center">
     <%= f.submit "Search", class: "btn-flat-border", id: "submit_button_search" %>
   </div>
