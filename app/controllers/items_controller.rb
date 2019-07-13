@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   protect_from_forgery #CSFR対策
+  before_action :login_redirect, only: [:create, :destroy, :update, :edit]
 
   def index
     @item = Item.new # 新規作成用オブジェクト
@@ -82,5 +83,8 @@ class ItemsController < ApplicationController
       params.require(:item).permit(:title, :description, :price, :image)
     end
 
+    def login_redirect
+      redirect_to login_path if current_shop.nil?
+    end
 
 end
