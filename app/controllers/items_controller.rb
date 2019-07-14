@@ -84,6 +84,17 @@ class ItemsController < ApplicationController
     end
   end
 
+  def search
+    if params[:keyword].present?
+      @shops = Shop.where('name LIKE (?)', "%#{params[:keyword]}%")
+    else
+      @shops = nil
+    end
+    respond_to do |format|
+      format.json { render 'index', json: @shops }
+    end
+  end
+
   private
 
     def item_params

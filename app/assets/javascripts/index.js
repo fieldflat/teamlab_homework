@@ -65,7 +65,6 @@ $(function () {
   $("#submit_button_search").click(function () { 
     var text = $("#text").val();
     var shop_name = $("#shop_name").val();
-    console.log(text);
     $.ajax({
       type: 'GET', 
       url: '/items', 
@@ -89,7 +88,6 @@ $(function () {
                     </div>\
                   </div>\
                   `;
-          console.log(message);
           $('.items').prepend(message);
           $("#text").val("");
         })
@@ -100,3 +98,26 @@ $(function () {
       })
   })
 })
+
+$(function () {
+  $(document).on('keyup', '#shop_name', function (e) { 
+    e.preventDefault(); 
+    var input = $('#shop_name').val();
+    $.ajax({ 
+      url: '/search', 
+      type: 'GET', 
+      data: { keyword: input }, 
+      dataType: 'json' ,
+    })
+
+    .done(function (data) { 
+      $('#result').find('ol').remove();
+      $('#result').find('br').remove();
+      $(data).each(function (i, user) { 
+        if (user.name !== "") {
+          $('#result').append(`<ol class="search-list" id="${user.name}" value="${user.name}">` + user.name + '</ol>'); 
+        }
+      });
+    })
+  });
+});
