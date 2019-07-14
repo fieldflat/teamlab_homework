@@ -124,3 +124,12 @@
   margin-bottom: 30px;
   border: 1px solid black;
 }
+
+.search-list {
+  display: block;
+}
+
+.search-list:hover {
+  color: red;
+  background: grey;
+}

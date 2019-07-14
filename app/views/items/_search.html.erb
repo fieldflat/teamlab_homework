@@ -8,6 +8,11 @@
   <div class="cp_iptxt">
     <%= f.label :shop_name, class: "ef" %>
     <%= f.text_field :shop_name, placeholder: "店舗名で絞り込むことができます(任意)" %>
+
+    <!-- インクリメンタルサーチの結果表示 -->
+    <ul id="result" style="background: #f7ffcf;">
+
+    </ul>
   </div>
 
   <div class="center">
@@ -15,3 +20,12 @@
   </div>
 
 <% end %>
+
+<script>
+  $(document).on('click', 'ol', function(){
+    console.log($(this).attr('value'));
+    $("#shop_name").val($(this).attr('value'));
+    $('#result').find('ol').remove();
+    $('#result').find('br').remove();
+  });
+</script>
