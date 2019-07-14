@@ -65,7 +65,6 @@ $(function () {
   $("#submit_button_search").click(function () { 
     var text = $("#text").val();
     var shop_name = $("#shop_name").val();
-    console.log(text);
     $.ajax({
       type: 'GET', 
       url: '/items', 
@@ -89,7 +88,6 @@ $(function () {
                     </div>\
                   </div>\
                   `;
-          console.log(message);
           $('.items').prepend(message);
           $("#text").val("");
         })

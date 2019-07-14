@@ -23,7 +23,6 @@
 
 <script>
   $(document).on('click', 'ol', function(){
-    console.log($(this).attr('value'));
     $("#shop_name").val($(this).attr('value'));
     $('#result').find('ol').remove();
     $('#result').find('br').remove();
