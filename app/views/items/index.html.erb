@@ -1,28 +1,30 @@
 <% provide(:button, "Create") %>
-<h1>teamLab 商品登録・検索サイト</h1>
+<div class="container">
+  <h1 class="center">teamLab 商品登録・検索サイト</h1>
 
-<div class="center">
-  <button class="btn btn-selected" id="register-btn">登録</button>
-  <button class="btn" id="search-btn">検索</button>
-</div>
+  <div class="center">
+    <button class="btn btn-selected" id="register-btn">登録</button>
+    <button class="btn" id="search-btn">検索</button>
+  </div>
 
-<!-- 商品登録フォーム -->
-<div class="register">
-  <%= render partial: 'form' %>
-</div>
+  <!-- 商品登録フォーム -->
+  <div class="register">
+    <%= render partial: 'form' %>
+  </div>
 
-<!-- 検索フォーム -->
-<div class="search display_none">
-  <%= render partial: 'search' %>
-</div>
+  <!-- 検索フォーム -->
+  <div class="search display_none">
+    <%= render partial: 'search' %>
+  </div>
 
-<!-- 
-<div id="loading"><img src="assets/gif-load.gif"/></div>
--->
+  <!-- 
+  <div id="loading"><img src="assets/gif-load.gif"/></div>
+  -->
 
-<!-- 商品一覧 -->
-<div class="items cp_iptxt">
-  <%= render @items %>
+  <!-- 商品一覧 -->
+  <div class="items cp_iptxt">
+    <%= render @items %>
+  </div>
 </div>
 
 <script>

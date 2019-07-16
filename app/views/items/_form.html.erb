@@ -32,12 +32,12 @@
 
     <% if controller.action_name == 'index' %>
       <div class="button">
-        <%= f.submit yield(:button), class: "btn-flat-border", id: "submit_button_create" %>
+        <%= f.submit yield(:button), class: "btn btn-flat-border", id: "submit_button_create" %>
       </div>
     <% elsif controller.action_name == 'edit' %>
-        <div class="button">
-          <%= f.submit yield(:button), class: "btn-flat-border" %>
-        </div>
+      <div class="button">
+        <%= f.submit yield(:button), class: "btn btn-flat-border" %>
+      </div>
     <% end %>
   </div>
 

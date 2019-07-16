@@ -1,8 +1,10 @@
-<h1>Welcome to teamLab Homework</h1>
-<p><%= link_to "Index", items_path %></p>
-<% if current_shop.nil? %>
-  <p><%= link_to "Sign up", signup_path %></p>
-  <p><%= link_to "Log in", login_path %></p>
-<% else %>
-  <p><%= link_to "Log out", logout_path, method: :delete %></p>
-<% end %>
+<div class="center" id="home">
+  <h1>Welcome to teamLab Homework</h1>
+  <%= link_to "Index", items_path, class: "btn-flat-border__index" %>
+  <% if current_shop.nil? %>
+    <%= link_to "Sign up", signup_path, class: "btn-flat-border__signup" %>
+    <%= link_to "Log in", login_path, class: "btn-flat-border__login" %>
+  <% else %>
+    <%= link_to "Log out", logout_path, method: :delete, class: "btn-flat-border__logout" %>
+  <% end %>
+</div>

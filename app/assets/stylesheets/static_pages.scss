@@ -7,6 +7,10 @@
   padding: 0px;
 }
 
+.container {
+  padding-top: 100px;
+}
+
 #loading {
   display: flex;
   justify-content: center;
@@ -21,7 +25,11 @@ ul {
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
-	background-color: #1b2538;
+  background-color: #1b2538;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  // margin-bottom: 50px;
 }
 li {
 	float: left;
@@ -42,4 +50,8 @@ li a:hover:not(.active) {
 }
 .active {
 	background-color: #da3c41;
+}
+
+#home {
+  padding-top: 240px;
 }
