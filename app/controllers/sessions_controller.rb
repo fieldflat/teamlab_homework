@@ -1,10 +1,11 @@
+# frozen_string_literal: true
+
 class SessionsController < ApplicationController
-  def new
-  end
+  def new; end
 
   def create
     shop = Shop.find_by(email: params[:session][:email].downcase)
-    if shop && shop.authenticate(params[:session][:password])
+    if shop&.authenticate(params[:session][:password])
       # ユーザーログイン後にユーザー情報のページにリダイレクトする
       log_in shop
       redirect_to shop

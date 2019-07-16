@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SessionsHelper
   # 渡されたユーザーでログインする
   def log_in(shop)
@@ -6,9 +8,7 @@ module SessionsHelper
 
   # 現在ログイン中のユーザーを返す (いる場合)
   def current_shop
-    if session[:shop_id]
-      @current_shop ||= Shop.find_by(id: session[:shop_id])
-    end
+    @current_shop ||= Shop.find_by(id: session[:shop_id]) if session[:shop_id]
   end
 
   # ユーザーがログインしていればtrue、その他ならfalseを返す

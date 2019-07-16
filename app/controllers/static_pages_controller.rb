@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class StaticPagesController < ApplicationController
   def home
-		@item = Item.new
+    @item = Item.new
   end
 end
