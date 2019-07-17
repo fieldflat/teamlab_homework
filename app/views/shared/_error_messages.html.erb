@@ -1,12 +1,13 @@
 <% if @shop.errors.any? %>
   <div id="error_explanation">
-    <div class="alert alert-danger">
+    <div class="alert alert-danger" style="font-weight: bold;">
       The form contains <%= pluralize(@shop.errors.count, "error") %>.
     </div>
-    <ul>
-    <% @shop.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
+    <div>
+      <% @shop.errors.full_messages.each do |msg| %>
+        <p style="color: red;"><%= msg %></p>
+      <% end %>
+    </div>
     </ul>
   </div>
 <% end %>
