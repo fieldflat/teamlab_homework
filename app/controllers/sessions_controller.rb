@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
     shop = Shop.find_by(email: params[:session][:email].downcase)
     if shop&.authenticate(params[:session][:password])
       # ユーザーログイン後にユーザー情報のページにリダイレクトする
+      flash[:success] = "Login Success!!"
       log_in shop
       redirect_to shop
     else
@@ -18,5 +19,6 @@ class SessionsController < ApplicationController
   def destroy
     log_out
     redirect_to root_url
+    flash[:success] = "Logout Success!!"
   end
 end

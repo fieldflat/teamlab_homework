@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class ShopsController < ApplicationController
+  before_action :correct_shop?, only: [:show]
+
   def show
     @shop = Shop.find(params[:id])
   end
@@ -26,5 +28,13 @@ class ShopsController < ApplicationController
   def shop_params
     params.require(:shop).permit(:name, :email, :password,
                                  :password_confirmation)
+  end
+
+  def correct_shop?
+    @shop = Shop.find_by(id: params[:id])
+    unless @shop == current_shop
+      flash[:danger] = '権限がありません'
+      redirect_to items_path
+    end
   end
 end

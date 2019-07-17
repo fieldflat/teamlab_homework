@@ -1,7 +1,7 @@
 <div class="item_row item_block" id="item_<%= item.id %>">
   <p><b>title</b>: <%= item.title %></p>
   <p><b>description</b>: <%= item.description %></p>
-  <p><b>price</b>: <%= item.price %></p>
+  <p><b>price</b>: <%= item.price %>円</p>
   <p><b>shop name</b>: <%= item.shop.name %></p>
   <div class="center">
     <%= link_to "Show", item_path(item.id) %>
