@@ -31,14 +31,18 @@ $(function () {
         alert("商品を登録しました！");
         var message = `\
                     <div class="item_row item_block" id="item_${data.id}">\
-                      <p><b>title</b>: ${data.title}</p>\
-                      <p><b>description</b>: ${data.description}</p>\
-                      <p><b>price</b>: ${data.price}</p>\
-                      <p><b>shop name</b>: ${data.shop_name}</p>\
-                      <div class="center">\
-                      <a href="/items/${data.id}">Show</a>\
-                      <a href="/items/${data.id}/edit">Edit</a>\
-                      <a data-confirm="削除します．よろしいですか？" data-remote="true" rel="nofollow" data-method="delete" href="/items/${data.id}">Delete</a>\
+                      <div class="item-four">\
+                        <p id="item-title">${data.title.length > 14 ? data.title.slice(0, 14) + '...'  : data.title}</p>\
+                        <p id="item-description"> ${data.description.length > 30 ? data.description.slice(0, 30) : data.description}</p>\
+                        <div class="item-bottom-p">\
+                          <p id="item-price"> ${data.price}</p>\
+                          <p id="item-shop-name"> ${data.shop_name}</p>\
+                        </div>\
+                      </div>\
+                      <div class="center item-btns">\
+                      <a href="/items/${data.id}" class="item-btn item-btn-show">Show</a>\
+                      <a href="/items/${data.id}/edit" class="item-btn item-btn-edit">Edit</a>\
+                      <a data-confirm="削除します．よろしいですか？" data-remote="true" rel="nofollow" data-method="delete" href="/items/${data.id}" class="item-btn item-btn-delete">Delete</a>\
                       </div>\
                     </div>\
                     `;
@@ -77,16 +81,20 @@ $(function () {
         data.forEach(function (item) {
           var message = `\
                   <div class="item_row item_block" id="item_${item.id}">\
-                    <p><b>title</b>: ${item.title}</p>\
-                    <p><b>description</b>: ${item.description}</p>\
-                    <p><b>price</b>: ${item.price}</p>\
-                    <p><b>shop name</b>: ${item.shop_name}</p>\
-                    <div class="center">\
-                    <a href="/items/${item.id}">Show</a>\
-                    <a href="/items/${item.id}/edit">Edit</a>\
-                    <a data-confirm="削除します．よろしいですか？" data-remote="true" rel="nofollow" data-method="delete" href="/items/${item.id}">Delete</a>\
+                      <div class="item-four">\
+                        <p id="item-title">${item.title.length > 14 ? item.title.slice(0, 14) + '...' : item.title}</p>\
+                        <p id="item-description"> ${item.description.length > 30 ? item.description.slice(0, 30) : item.description}</p>\
+                        <div class="item-bottom-p">\
+                          <p id="item-price"> ${item.price}</p>\
+                          <p id="item-shop-name"> ${item.shop_name}</p>\
+                        </div>\
+                      </div>\
+                      <div class="center item-btns">\
+                      <a href="/items/${item.id}" class="item-btn item-btn-show">Show</a>\
+                      <a href="/items/${item.id}/edit" class="item-btn item-btn-edit">Edit</a>\
+                      <a data-confirm="削除します．よろしいですか？" data-remote="true" rel="nofollow" data-method="delete" href="/items/${item.id}" class="item-btn item-btn-delete">Delete</a>\
+                      </div>\
                     </div>\
-                  </div>\
                   `;
           $('.items').prepend(message);
           $("#text").val("");
