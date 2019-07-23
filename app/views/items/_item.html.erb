@@ -1,11 +1,15 @@
 <div class="item_row item_block" id="item_<%= item.id %>">
-  <p><b>title</b>: <%= item.title %></p>
-  <p><b>description</b>: <%= item.description %></p>
-  <p><b>price</b>: <%= item.price %>円</p>
-  <p><b>shop name</b>: <%= item.shop.name %></p>
-  <div class="center">
-    <%= link_to "Show", item_path(item.id) %>
-    <%= link_to "Edit", edit_item_path(item.id) %>
-    <%= link_to "Delete", item_path(item.id), {method: :delete, remote: true, data: {confirm: "削除します．よろしいですか？"}} %>
+  <div class="item-four">
+    <p id="item-title"> <%= item.title.length > 14 ? item.title[0,14] + '...' : item.title %></p>
+    <p id="item-description"><%= item.description.length > 30 ? item.description[0, 30] + '...' : item.description %></p>
+    <div class="item-bottom-p">
+      <p id="item-price"> <%= item.price %>円</p>
+      <p id="item-shop-name"><%= item.shop.name %></p>
+    </div>
+  </div>
+  <div class="center item-btns">
+    <%= link_to "Show", item_path(item.id), class: "item-btn item-btn-show" %>
+    <%= link_to "Edit", edit_item_path(item.id), class: "item-btn item-btn-edit" %>
+    <%= link_to "Delete", item_path(item.id), {method: :delete, remote: true, data: {confirm: "削除します．よろしいですか？"}, class: "item-btn item-btn-delete"} %>
   </div>
 </div>

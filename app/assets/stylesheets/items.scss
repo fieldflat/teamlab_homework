@@ -3,6 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // 入力フォーム用CSS
+body {
+  background-color: #f1f1f1;
+}
+
 .cp_iptxt {
 	position: relative;
 	width: 90%;
@@ -141,6 +145,7 @@
 .items {
   margin-top: 30px !important;
   margin: 0 auto;
+  background-color: #af1a1a;
 }
 
 .btn-selected {
@@ -163,13 +168,80 @@
 	border-radius: 4px;
 }
 
+// .item-four{
+//   position: relative;
+// }
+
+#item-title {
+  font-size: 24px;
+  color: #4c6155;
+}
+
+#item-description {
+  color: #4c6155;
+}
+
+#item-price, #item-shop-name {
+  text-align: right;
+  color: #4c6155;
+  font-size: 12px;
+  // position: absolute;
+  // bottom: 0;
+}
+
+// .item-bottom-p {
+//   padding-top: 10px;
+// }
+
 .item_block {
-  width: 30%;
+  width: 22%;
   float: left;
-  // height: 200px;
+  height: 200px;
   margin-right: 20px;
   margin-bottom: 30px;
-  border: 1px solid black;
+  padding: 5px;
+  border: 1px solid rgb(180, 180, 180);
+  position: relative;
+  border-radius: 5px;
+  box-shadow: 0 3px grey; 
+}
+
+.item-btns {
+  position: absolute;
+  bottom: 0;
+}
+
+.item-btn {
+  display: inline-block;
+  padding: 8px 20px;
+  border: 2px solid rgb(233, 233, 233);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.item-btn-show {
+  background-color: rgba(107, 134, 255, 0.9);
+}
+
+.item-btn-show:hover {
+  background-color: rgba(107, 134, 255, 0.5);
+}
+
+.item-btn-edit {
+  background-color: rgba(32, 204, 98, 0.9);
+}
+
+.item-btn-edit:hover {
+  background-color: rgba(32, 204, 98, 0.5);
+}
+
+.item-btn-delete {
+  background-color: rgba(255, 83, 41, 0.9);
+}
+
+.item-btn-delete:hover {
+  background-color: rgba(255, 83, 41, 0.5);
 }
 
 .search-list {
