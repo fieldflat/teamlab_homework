@@ -203,7 +203,7 @@ body {
   border: 1px solid rgb(180, 180, 180);
   position: relative;
   border-radius: 5px;
-  box-shadow: 0 3px grey; 
+  box-shadow: 2px 3px grey; 
 }
 
 .item-btns {
@@ -256,4 +256,9 @@ body {
 #error_explanation {
   width: 90%;
 	margin: 40px 3%;
+}
+
+.show_container {
+  width: 90%;
+  margin: 0 auto;
 }
