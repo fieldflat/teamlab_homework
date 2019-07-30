@@ -25,16 +25,20 @@
   </div>
 
   <div class="center">
-    <div class="image">
-      <%= f.label :image %>
-      <%= f.file_field :image %>
-    </div>
 
     <% if controller.action_name == 'index' %>
+      <div class="image">
+        <%= f.label :image %>(商品登録後に画像投稿可能)
+        <%= f.file_field :image, disabled: true %>
+      </div>
       <div class="button">
         <%= f.submit yield(:button), class: "btn btn-flat-border", id: "submit_button_create" %>
       </div>
     <% elsif controller.action_name == 'edit' %>
+      <div class="image">
+        <%= f.label :image %>
+        <%= f.file_field :image %>
+      </div>
       <div class="button">
         <%= f.submit yield(:button), class: "btn btn-flat-border" %>
       </div>

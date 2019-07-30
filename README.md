@@ -1,24 +1,5 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+このアプリケーションは，2019年度 チームラボ株式会社で開催されるサマーインターンの事前課題として作成した，商品管理アプリケーションである．
+以下の機能を提供します．
+- 商品データ(商品画像，商品タイトル，説明文，価格)の登録・検索・変更・削除

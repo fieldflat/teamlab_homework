@@ -3,7 +3,9 @@
     <h2> <%= @item.title %></h2>
     <p> <%= @item.description %></p>
     <p><b>price</b>: <%= @item.price %>円</p>
-    <%= image_tag @item.image.url if @item.image? %>
+    <div class="center">
+      <%= image_tag @item.image.url if @item.image? %>
+    </div>
 
     <div class="center">
       <%= link_to "Index", items_path, class: "item-btn item-btn-show" %>
