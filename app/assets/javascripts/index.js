@@ -35,7 +35,7 @@ $(function () {
                         <p id="item-title">${data.title.length > 14 ? data.title.slice(0, 14) + '...'  : data.title}</p>\
                         <p id="item-description"> ${data.description.length > 30 ? data.description.slice(0, 30) : data.description}</p>\
                         <div class="item-bottom-p">\
-                          <p id="item-price"> ${data.price}</p>\
+                          <p id="item-price"> ${data.price}円</p>\
                           <p id="item-shop-name"> ${data.shop_name}</p>\
                         </div>\
                       </div>\
@@ -85,7 +85,7 @@ $(function () {
                         <p id="item-title">${item.title.length > 14 ? item.title.slice(0, 14) + '...' : item.title}</p>\
                         <p id="item-description"> ${item.description.length > 30 ? item.description.slice(0, 30) : item.description}</p>\
                         <div class="item-bottom-p">\
-                          <p id="item-price"> ${item.price}</p>\
+                          <p id="item-price"> ${item.price}円</p>\
                           <p id="item-shop-name"> ${item.shop_name}</p>\
                         </div>\
                       </div>\

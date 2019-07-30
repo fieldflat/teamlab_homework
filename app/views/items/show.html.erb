@@ -6,8 +6,9 @@
     <%= image_tag @item.image.url if @item.image? %>
 
     <div class="center">
-      <%= link_to "Delete", item_path(@item.id), method: :delete, data: {confirm: "削除します．よろしいですか？"}, class: "item-btn item-btn-delete" %>
       <%= link_to "Index", items_path, class: "item-btn item-btn-show" %>
+      <%= link_to "Edit", edit_item_path(@item.id), class: "item-btn item-btn-edit" %>
+      <%= link_to "Delete", item_path(@item.id), method: :delete, data: {confirm: "削除します．よろしいですか？"}, class: "item-btn item-btn-delete" %>
     </div>
   </div>
 </div>

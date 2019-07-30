@@ -57,12 +57,14 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     if @item.update(item_params)
       respond_to do |format|
+        flash[:success] = "編集に成功しました。"
         format.html { redirect_to item_path(@item) }
         format.json { render json: @item }
       end
     else
       respond_to do |format|
-        format.html { redirect_to root_path }
+        flash[:danger] = "編集に失敗しました。"
+        format.html { redirect_to item_path(@item) }
         format.json { render json: @item.errors }
       end
     end
